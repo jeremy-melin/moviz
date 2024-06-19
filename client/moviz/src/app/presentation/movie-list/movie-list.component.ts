@@ -1,21 +1,21 @@
 import { Component, inject } from '@angular/core';
-import { MovieImplementationRepository } from '../../data/movie-implementation.repository';
 import { MovieModel } from '../../domain/models/movie.model';
+import { MovieImplementationRepository } from '../../data/movie-implementation.repository';
 
 @Component({
   selector: 'app-movie-list',
   standalone: true,
-  imports: [],
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.scss'
 })
 export class MovieListComponent {
 
+  repository = inject(MovieImplementationRepository);
   movies: Array<MovieModel> = [];
-  movieRepository = inject(MovieImplementationRepository);
 
   async ngOnInit() {
-    this.movieRepository.getAllMovies().subscribe(movies => {
+    this.repository.getAllMovies().subscribe(movies => {
+      console.log("movies", movies);
       this.movies = movies || [];
     });
   }

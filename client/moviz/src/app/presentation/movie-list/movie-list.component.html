@@ -1,7 +1,6 @@
 <p>movie-list works!</p>
-
-@for(movie of movies; track movie) {
-    <div>
-        Title : {{ movie.title }}
-    </div>
+@for (movie of movies; track $index) {
+    <p>
+        {{ movie.title }} : {{ movie.year }} 
+    </p>
 }

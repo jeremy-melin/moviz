@@ -17,6 +17,6 @@ export class MovieImplementationRepository extends MovieRepository {
     }
     
     override getAllMovies(): Observable<MovieModel[]> {
-        return this.http.get<MovieModel[]>(this.URI);    
+        return this.http.get<MovieModel[]>(this.URI);
     }
 }
