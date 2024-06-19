@@ -1,0 +1,12 @@
+<form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+
+    <label for="title">Title : </label>
+    <input id="title" type="text" formControlName="title">
+  
+    <label for="year">Year : </label>
+    <input id="year" type="text" formControlName="year">
+  
+    <button type="submit">Submit</button>
+  </form>
+
+

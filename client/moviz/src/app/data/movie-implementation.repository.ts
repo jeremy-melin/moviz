@@ -9,14 +9,18 @@ import { HttpClient } from "@angular/common/http";
     providedIn: 'root',
 })
 export class MovieImplementationRepository extends MovieRepository {
-
+    
     protected URI = 'https://localhost:7179/api/movie';
-
+    
     constructor(private http: HttpClient) {
         super();
     }
     
     override getAllMovies(): Observable<MovieModel[]> {
         return this.http.get<MovieModel[]>(this.URI);
+    }
+
+    override addMovie(movie: MovieModel): Observable<MovieModel> {
+        return this.http.post<MovieModel>(this.URI, movie, {});
     }
 }

@@ -15,7 +15,6 @@ export class MovieListComponent {
 
   async ngOnInit() {
     this.repository.getAllMovies().subscribe(movies => {
-      console.log("movies", movies);
       this.movies = movies || [];
     });
   }
