@@ -22,5 +22,13 @@ public class MovieController : ControllerBase {
 
         return CreatedAtAction(nameof(Get), new { id = newMovie.Id }, newMovie);
     }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(string id)
+    {
+        await _movieService.RemoveAsync(id);
+
+        return Ok();
+    }
  
  }

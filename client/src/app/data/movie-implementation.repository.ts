@@ -23,4 +23,8 @@ export class MovieImplementationRepository extends MovieRepository {
     override addMovie(movie: MovieModel): Observable<MovieModel> {
         return this.http.post<MovieModel>(this.URI, movie, {});
     }
+
+    override deleteMovie(id: string): Observable<MovieModel> {
+        return this.http.delete(this.URI + "/" + id);
+    }
 }

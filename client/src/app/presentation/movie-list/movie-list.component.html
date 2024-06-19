@@ -1,7 +1,7 @@
 <p>My movies list :</p>
 
 @for (movie of movies; track $index) {
-    <p>
-        {{ movie.title }} - {{ movie.year }} 
-    </p>
+    <div>
+        {{ movie.title }} - {{ movie.year }} - <button (click)="deleteMovie(movie.id)">Delete</button>
+    </div>
 }

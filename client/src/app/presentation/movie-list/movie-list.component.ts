@@ -19,4 +19,8 @@ export class MovieListComponent {
     });
   }
 
+  deleteMovie(id: string | undefined) {
+    this.repository.deleteMovie(id ?? "0").subscribe();
+  }
+
 }
