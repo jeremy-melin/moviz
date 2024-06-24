@@ -1,7 +1,9 @@
-<p>My movies list :</p>
+<h3>My movies list :</h3>
 
-@for (movie of movies; track $index) {
-    <div>
-        {{ movie.title }} - {{ movie.year }} - <button (click)="deleteMovie(movie.id)">Delete</button>
-    </div>
-}
+<mat-list>
+    @for (movie of store.movies(); track $index) {
+        <mat-list-item>
+            {{ movie.title }} - {{ movie.year }} - <button mat-flat-button color="warn" (click)="deleteMovie(movie.id)">Delete</button>
+        </mat-list-item>
+    }
+</mat-list>

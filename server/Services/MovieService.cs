@@ -24,8 +24,11 @@ public class MovieService {
     public async Task<List<Movie>> GetAsync() =>
         await _moviesCollection.Find(_ => true).ToListAsync();
 
-    public async Task<Movie?> GetAsync(string id) =>
-        await _moviesCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+    // public async Task<Movie?> GetAsync(string id) =>
+    //     await _moviesCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+
+    public async Task<Movie?> GetAsync(string title) =>
+        await _moviesCollection.Find(x => x.Title == title).FirstOrDefaultAsync();
 
     public async Task CreateAsync(Movie newMovie) =>
         await _moviesCollection.InsertOneAsync(newMovie);

@@ -1,26 +1,26 @@
 import { Component, inject } from '@angular/core';
-import { MovieModel } from '../../domain/models/movie.model';
-import { MovieImplementationRepository } from '../../data/movie-implementation.repository';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MoviesStore } from '../../data/movies.store';
 
 @Component({
   selector: 'app-movie-list',
   standalone: true,
+  imports: [MatButtonModule, MatListModule],
+  providers: [MoviesStore],
   templateUrl: './movie-list.component.html',
   styleUrl: './movie-list.component.scss'
 })
 export class MovieListComponent {
 
-  repository = inject(MovieImplementationRepository);
-  movies: Array<MovieModel> = [];
+  readonly store = inject(MoviesStore);
 
   async ngOnInit() {
-    this.repository.getAllMovies().subscribe(movies => {
-      this.movies = movies || [];
-    });
+    this.store.getAllMovies();
   }
 
   deleteMovie(id: string | undefined) {
-    this.repository.deleteMovie(id ?? "0").subscribe();
+    // this.repository.deleteMovie(id ?? "0").subscribe();
   }
 
 }

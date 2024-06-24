@@ -2,11 +2,14 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MovieImplementationRepository } from '../../data/movie-implementation.repository';
 import { MovieModel } from '../../domain/models/movie.model';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-movie-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatButtonModule, MatFormFieldModule, MatInputModule],
   templateUrl: './movie-form.component.html',
   styleUrl: './movie-form.component.scss'
 })
@@ -20,11 +23,7 @@ export class MovieFormComponent {
   });
 
   onSubmit(): void {
-    console.log("form state : ", this.movieForm.value);
-
-    this.repository.addMovie(this.movieForm.value as MovieModel).subscribe(data => {
-      console.log("returned data from server : ", data);
-    });
+    this.repository.addMovie(this.movieForm.value as MovieModel).subscribe();
   }
 
 }

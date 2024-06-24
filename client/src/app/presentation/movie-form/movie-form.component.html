@@ -1,12 +1,16 @@
 <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
 
-    <label for="title">Title : </label>
-    <input id="title" type="text" formControlName="title">
+    <mat-form-field class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput id="title" type="text" formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Year</mat-label>
+      <input matInput id="year" type="text" formControlName="year">
+    </mat-form-field>
   
-    <label for="year">Year : </label>
-    <input id="year" type="text" formControlName="year">
-  
-    <button type="submit">Submit</button>
+    <button mat-flat-button color="primary" type="submit">Add</button>
   </form>
 
 

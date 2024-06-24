@@ -20,6 +20,10 @@ export class MovieImplementationRepository extends MovieRepository {
         return this.http.get<MovieModel[]>(this.URI);
     }
 
+    override getMovieByTitle(title: string): Observable<MovieModel> {
+        return this.http.get<MovieModel>(this.URI, {params: {title}});
+    }
+
     override addMovie(movie: MovieModel): Observable<MovieModel> {
         return this.http.post<MovieModel>(this.URI, movie, {});
     }

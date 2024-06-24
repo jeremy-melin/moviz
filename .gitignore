@@ -1,4 +1,4 @@
-client/.angular
+client/.angular/*
 client/node_modules
 
 server/bin

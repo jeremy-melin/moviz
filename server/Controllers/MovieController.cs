@@ -15,6 +15,17 @@ public class MovieController : ControllerBase {
     [HttpGet]
     public async Task<List<Movie>> Get() => await _movieService.GetAsync();
 
+    [HttpGet("{title}")]
+    public async Task<IActionResult> Get(string title)
+    {
+        var movie = await _movieService.GetAsync(title);
+        if (movie == null) {
+            return NotFound();
+        }
+
+        return Ok(movie);
+    }
+
     [HttpPost]
     public async Task<IActionResult> Post(Movie newMovie)
     {
