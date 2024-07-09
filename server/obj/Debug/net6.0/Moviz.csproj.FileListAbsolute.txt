@@ -119,3 +119,14 @@
 /home/lyzxen/web/moviz/server/obj/Debug/net6.0/ref/Moviz.dll
 /home/lyzxen/web/moviz/server/obj/Debug/net6.0/Moviz.pdb
 /home/lyzxen/web/moviz/server/obj/Debug/net6.0/Moviz.genruntimeconfig.cache
+/home/lyzxen/web/moviz/server/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/home/lyzxen/web/moviz/server/bin/Debug/net6.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/home/lyzxen/web/moviz/server/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll
+/home/lyzxen/web/moviz/server/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/lyzxen/web/moviz/server/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/lyzxen/web/moviz/server/bin/Debug/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/lyzxen/web/moviz/server/bin/Debug/net6.0/Microsoft.IdentityModel.Logging.dll
+/home/lyzxen/web/moviz/server/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.dll
+/home/lyzxen/web/moviz/server/bin/Debug/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/home/lyzxen/web/moviz/server/bin/Debug/net6.0/Microsoft.IdentityModel.Tokens.dll
+/home/lyzxen/web/moviz/server/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll

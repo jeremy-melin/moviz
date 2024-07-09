@@ -6,5 +6,7 @@ public class MovieDatabaseSettings
 
     public string DatabaseName { get; set; } = null!;
 
-    public string CollectionName { get; set; } = null!;
+    public string MovieCollectionName { get; set; } = null!;
+
+    public string UserCollectionName { get; set; } = null!;
 }

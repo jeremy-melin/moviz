@@ -1,4 +1,4 @@
-import { MovieModel } from '../domain/models/movie.model';
+import { MovieModel } from '../../domain/models/movie.model';
 import { MovieImplementationRepository } from './movie-implementation.repository';
 
 import { inject } from '@angular/core';
@@ -24,8 +24,13 @@ export const MoviesStore = signalStore(
     withMethods((store, repository = inject(MovieImplementationRepository)) => ({
         async getAllMovies() {
             return repository.getAllMovies().subscribe(movies => patchState(store, { movies }))
+        },
+        async deleteMovie(id: string) {
+            return repository.deleteMovie(id).subscribe(() => {
+                const movies = store.movies().filter((film: MovieModel) => film.id !== id);
+                patchState(store, { movies });
+            });
         }
-    })
-)
+    }))
 );
 

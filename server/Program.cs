@@ -8,7 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<MovieDatabaseSettings>(
     builder.Configuration.GetSection("MovieDatabase"));
 
-    builder.Services.AddSingleton<MovieService>();
+builder.Services.AddSingleton<MongoDBService>();
+builder.Services.AddSingleton<MovieService>();
+builder.Services.AddSingleton<AccountsService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -20,13 +22,15 @@ builder.Services.AddCors(options =>
     options.AddPolicy("MyAllowSpecificOrigins",
                       policy  =>
                       {
-                          policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+                          policy
+                            .WithOrigins("http://localhost:4200")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
                       });
 });
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
@@ -38,8 +42,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseCors("MyAllowSpecificOrigins");
+
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

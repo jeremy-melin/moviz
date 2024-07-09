@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
-import { MovieRepository } from "../domain/repositories/movie.repository";
+import { MovieRepository } from "../../domain/repositories/movie.repository";
 import { Observable } from "rxjs";
-import { MovieModel } from "../domain/models/movie.model";
+import { MovieModel } from "../../domain/models/movie.model";
 import { HttpClient } from "@angular/common/http";
 
 

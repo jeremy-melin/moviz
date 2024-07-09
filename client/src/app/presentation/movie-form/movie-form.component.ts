@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MovieImplementationRepository } from '../../data/movie-implementation.repository';
+import { MovieImplementationRepository } from '../../data/movies/movie-implementation.repository';
 import { MovieModel } from '../../domain/models/movie.model';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';

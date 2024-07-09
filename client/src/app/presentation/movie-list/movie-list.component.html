@@ -3,7 +3,7 @@
 <mat-list>
     @for (movie of store.movies(); track $index) {
         <mat-list-item>
-            {{ movie.title }} - {{ movie.year }} - <button mat-flat-button color="warn" (click)="deleteMovie(movie.id)">Delete</button>
+            {{ movie.title }} - {{ movie.year }} - <button mat-flat-button color="warn" (click)="deleteMovie(movie.id!)">Delete</button>
         </mat-list-item>
     }
 </mat-list>

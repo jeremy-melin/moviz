@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
-import { MoviesStore } from '../../data/movies.store';
+import { MoviesStore } from '../../data/movies/movies.store';
 
 @Component({
   selector: 'app-movie-list',
@@ -19,7 +19,8 @@ export class MovieListComponent {
     this.store.getAllMovies();
   }
 
-  deleteMovie(id: string | undefined) {
+  deleteMovie(id: string) {
+    this.store.deleteMovie(id);
     // this.repository.deleteMovie(id ?? "0").subscribe();
   }
 

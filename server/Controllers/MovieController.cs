@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Moviz.Models;
 using Moviz.Services;
+using Microsoft.Extensions.Options;
 
 
 [ApiController]
@@ -8,8 +9,8 @@ using Moviz.Services;
 public class MovieController : ControllerBase {
     private readonly MovieService _movieService;
 
-    public MovieController(MovieService movieService) {
-        _movieService = movieService;
+    public MovieController(IOptions<MovieDatabaseSettings> movieDatabaseSettings, MongoDBService mongoDBService) {
+        _movieService = new MovieService(movieDatabaseSettings, mongoDBService);
     }
 
     [HttpGet]

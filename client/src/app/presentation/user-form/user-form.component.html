@@ -1,0 +1,28 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width">
+      <mat-label>Firstname</mat-label>
+      <input matInput id="firstname" type="text" formControlName="firstname">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Lastname</mat-label>
+      <input matInput id="lastname" type="text" formControlName="lastname">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput id="email" type="email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput id="password" type="password" formControlName="password">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <mat-label>Confirm password</mat-label>
+      <input matInput id="confirmPassword" type="password" formControlName="confirmPassword">
+    </mat-form-field>
+  
+    <button mat-flat-button color="primary" type="submit">Add</button>
+</form>

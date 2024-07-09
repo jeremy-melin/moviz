@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { MovieImplementationRepository } from "../../data/movie-implementation.repository";
+import { MovieImplementationRepository } from "../../data/movies/movie-implementation.repository";
 
 @Injectable({
     providedIn: "root",

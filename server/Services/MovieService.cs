@@ -4,21 +4,13 @@ using Microsoft.Extensions.Options;
 
 namespace Moviz.Services;
 
-public class MovieService {
+public class MovieService : MongoDBService {
     private readonly IMongoCollection<Movie> _moviesCollection;
 
-    public MovieService(
-        IOptions<MovieDatabaseSettings> movieDatabaseSettings)
+    public MovieService(IOptions<MovieDatabaseSettings> movieDatabaseSettings, MongoDBService mongoDBService) : base(movieDatabaseSettings)
     {
-
-        var mongoClient = new MongoClient(
-            movieDatabaseSettings.Value.ConnectionURI);
-
-        var mongoDatabase = mongoClient.GetDatabase(
-            movieDatabaseSettings.Value.DatabaseName);
-
-        _moviesCollection = mongoDatabase.GetCollection<Movie>(
-            movieDatabaseSettings.Value.CollectionName);
+        _moviesCollection = mongoDBService.mongoDatabase.GetCollection<Movie>(
+            movieDatabaseSettings.Value.MovieCollectionName);
     }
 
     public async Task<List<Movie>> GetAsync() =>

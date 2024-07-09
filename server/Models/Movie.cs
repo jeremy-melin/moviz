@@ -13,4 +13,6 @@ public class Movie {
 
     public int Year {get; set;}
 
+    public string EIDR {get; set;} = "";
+
 }
